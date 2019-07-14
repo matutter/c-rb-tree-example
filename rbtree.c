@@ -9,7 +9,7 @@
 
 #define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))
 #define PRINT_NODE(n, color) \
-  printf("  \"%d\" [label=<<b>%d</b>>,xlabel=<<font color=\"black\" point-size=\"8\">w:%d</font>>,style=filled,shape=circle,fillcolor=%s];\n", n->uid, n->val, n->weight, color);
+  printf("  \"%d\" [label=%d,xlabel=<<font color=\"black\" point-size=\"8\">w:%d</font>>,style=filled,shape=circle,fillcolor=%s];\n", n->uid, n->val, n->weight, color);
 #define PRINT_EMPTY_NODE(i) \
   printf("   \"%d\" [label=\"NIL\",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];\n", i);
 #define __LOG(args...) fprintf(stderr, ##args)
@@ -53,13 +53,18 @@ void print_edge(node_t* a, node_t* b, bool is_black) {
 void print_digraph(node_t* head) {
   printf(
     "digraph {\n"
+    "  fontname=\"DejaVuSansMono\"\n"
+    "  label=\"RB-Tree of %d nodes\"\n"
+    "  labelloc=t\n"
     "  edge [\n"
     "    arrowhead=\"none\"\n"
     "  ];\n"
     "  node [\n"
-    "    fontname=\"DejaVuSansMono\"\n"
     "    fontcolor=white\n"
+    "    labelloc=c\n"
+    "    lp=3\n"
     "  ]\n"
+    , head->weight
   );
   PRINT_NODE(head, "black");  
   print_edge(head, head->l, false);
@@ -162,6 +167,6 @@ int main(void) {
   for ( int i = 0; i < size; i++ )
     head = insert_node(head, new_node(vals[i]));
   print_digraph(head);
-  LOG("Done with graph with %d nodes", size);
+  LOG("Done with graph of %d nodes", size);
   return 0;
 }
