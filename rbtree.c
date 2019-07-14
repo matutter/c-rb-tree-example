@@ -89,7 +89,7 @@ int set_weight(node_t* n) {
 
 node_t* rotate_right(node_t* a) {
   LOG("rotate right");
-  if ( !a->r ) return a;
+  if ( !a->l ) return a;
 
   node_t* b  = a->l;
   node_t* r = b->r;
