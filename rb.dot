@@ -2,41 +2,45 @@ digraph {
   edge [
     arrowhead="none"
   ];
-  "4" [label="22",xlabel="w:9",style=filled,fillcolor=white];
-  "3" [label="18",xlabel="w:4",style=filled,fillcolor=red];
+  node [
+    fontname="DejaVuSansMono"
+    fontcolor=white
+  ]
+  "4" [label=<<b>22</b>>,xlabel=<<font color="black" point-size="8">w:9</font>>,style=filled,shape=circle,fillcolor=black];
+  "3" [label=<<b>18</b>>,xlabel=<<font color="black" point-size="8">w:4</font>>,style=filled,shape=circle,fillcolor=red];
   "4" -> "3" [penwidth=4];
-  "1" [label="16",xlabel="w:3",style=filled,fillcolor=red];
+  "1" [label=<<b>16</b>>,xlabel=<<font color="black" point-size="8">w:3</font>>,style=filled,shape=circle,fillcolor=black];
   "3" -> "1" [penwidth=4];
-  "2" [label="4",xlabel="w:2",style=filled,fillcolor=red];
+  "2" [label=<<b>4</b>>,xlabel=<<font color="black" point-size="8">w:2</font>>,style=filled,shape=circle,fillcolor=red];
   "1" -> "2" [penwidth=4];
-   "10" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "10" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "2" -> "10";
-  "7" [label="6",xlabel="w:1",style=filled,fillcolor=grey];
+  "7" [label=<<b>6</b>>,xlabel=<<font color="black" point-size="8">w:1</font>>,style=filled,shape=circle,fillcolor=black];
   "2" -> "7" [penwidth=4];
-   "11" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "11" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "7" -> "11";
-   "12" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "12" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "7" -> "12";
-   "13" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "13" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "1" -> "13";
-   "14" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "14" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "3" -> "14";
-  "5" [label="27",xlabel="w:4",style=filled,fillcolor=grey];
+  "5" [label=<<b>27</b>>,xlabel=<<font color="black" point-size="8">w:4</font>>,style=filled,shape=circle,fillcolor=red];
   "4" -> "5" [penwidth=4];
-  "8" [label="26",xlabel="w:2",style=filled,fillcolor=red];
+  "8" [label=<<b>26</b>>,xlabel=<<font color="black" point-size="8">w:2</font>>,style=filled,shape=circle,fillcolor=black];
   "5" -> "8" [penwidth=4];
-  "9" [label="25",xlabel="w:1",style=filled,fillcolor=red];
+  "9" [label=<<b>25</b>>,xlabel=<<font color="black" point-size="8">w:1</font>>,style=filled,shape=circle,fillcolor=red];
   "8" -> "9" [penwidth=4];
-   "15" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "15" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "9" -> "15";
-   "16" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "16" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "9" -> "16";
-   "17" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "17" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "8" -> "17";
-  "6" [label="31",xlabel="w:1",style=filled,fillcolor=grey];
+  "6" [label=<<b>31</b>>,xlabel=<<font color="black" point-size="8">w:1</font>>,style=filled,shape=circle,fillcolor=black];
   "5" -> "6" [penwidth=4];
-   "18" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "18" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "6" -> "18";
-   "19" [label="",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];
+   "19" [label="NIL",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];
    "6" -> "19";
 }

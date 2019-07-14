@@ -5,12 +5,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define ARRAY_SIZE(x) (sizeof(x)/sizeof(x[0]))
 #define PRINT_NODE(n, color) \
-  printf("  \"%d\" [label=\"%d\",xlabel=\"w:%d\",style=filled,fillcolor=%s];\n", n->uid, n->val, n->weight, color);
-#define PRINT_EMPTY_NODE(i, color) \
-  printf("   \"%d\" [label=\"\",shape=circle,style=filled,width=0.2,height=0.2,fillcolor=black,fontcolor=white];\n", i);
+  printf("  \"%d\" [label=<<b>%d</b>>,xlabel=<<font color=\"black\" point-size=\"8\">w:%d</font>>,style=filled,shape=circle,fillcolor=%s];\n", n->uid, n->val, n->weight, color);
+#define PRINT_EMPTY_NODE(i) \
+  printf("   \"%d\" [label=\"NIL\",shape=rectangle,style=filled,width=0.2,height=0.2,fillcolor=black];\n", i);
 #define __LOG(args...) fprintf(stderr, ##args)
 #define LOG(fmt, args...) __LOG("%s:%d " fmt "\n", __func__, __LINE__, ##args)
 
@@ -35,17 +36,17 @@ node_t* new_node(int i) {
   return n;
 }
 
-void print_edge(node_t* a, node_t* b, char* color) {
+void print_edge(node_t* a, node_t* b, bool is_black) {
   if ( a == NULL ) return;
   if ( b == NULL ) {
     int id = node_uid++;
-    PRINT_EMPTY_NODE(id, color);
+    PRINT_EMPTY_NODE(id);
     printf("   \"%d\" -> \"%d\";\n", a->uid, id);
   } else {
-    PRINT_NODE(b, color);
+    PRINT_NODE(b, (is_black?"black":"red"));
     printf("  \"%d\" -> \"%d\" [penwidth=4];\n", a->uid, b->uid);
-    print_edge(b, b->l, "red");
-    print_edge(b, b->r, "grey");
+    print_edge(b, b->l, !is_black);
+    print_edge(b, b->r, !is_black);
   }
 }
 
@@ -55,11 +56,14 @@ void print_digraph(node_t* head) {
     "  edge [\n"
     "    arrowhead=\"none\"\n"
     "  ];\n"
-  
+    "  node [\n"
+    "    fontname=\"DejaVuSansMono\"\n"
+    "    fontcolor=white\n"
+    "  ]\n"
   );
-  PRINT_NODE(head, "white");  
-  print_edge(head, head->l, "red");
-  print_edge(head, head->r, "grey");
+  PRINT_NODE(head, "black");  
+  print_edge(head, head->l, false);
+  print_edge(head, head->r, false);
   printf("}\n");
 }
 
